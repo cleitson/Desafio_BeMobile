@@ -1,10 +1,15 @@
+import NavBar from "./components/NavBar"
+import SearchBar from "./components/SearchBar"
+import TableEmployees from "./components/TableEmployees"
 
 function App() {
   
 
   return (
     <>
-      <h1 className="text-4xl text-center">App</h1>
+      <NavBar />
+      <SearchBar />
+      <TableEmployees />
     </>
   )
 }
