@@ -1,5 +1,22 @@
-@import "tailwindcss";
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import "tailwindcss";
+
+html {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  background-color: #F0F0F0;
+}
+
+h1{
+  font-family: "Helvetica Neue", sans-serif;
+  font-size: 1.25rem;
+}
+
+h2,h3{
+  font-family: "Helvetica Neue", sans-serif;
+  font-size: 1rem;
+}
 
 @theme {
   --color-blue-primary: #0500FF;
@@ -10,23 +27,8 @@
   --color-gray-05: #F5F5F5;
   --color-gray-00: #F0F0F0;
   --color-white: #FFFFFF;
-}
 
-html {
-  font-family: 'Roboto', sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-}
+  --shadow-01:0px 1px 2px 0px rgba(0, 0, 0, 0.2);
+  --shadow-02:0px 2px 4px 0px rgba(0, 0, 0, 0.2);
 
-h1{
-  font-family: "Helvetica Neue", sans-serif;
-  font-size: 1.25rem;
-}
-h2{
-  font-family: "Helvetica Neue", sans-serif;
-  font-size: 1rem;
-}
-h3{
-  font-family: "Helvetica Neue", sans-serif;
-  font-size: 1rem;
 }
