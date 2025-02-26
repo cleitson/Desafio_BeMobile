@@ -1,14 +1,17 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import Context from "./Context";
 import { EmployeesType } from "../types";
+import { useSearchParams } from "react-router";
 
 type ContextProviderProps = {
   children: React.ReactNode;
 };
 
 function ContextProvider({ children }: ContextProviderProps) {
-  const [loading, setLoading] = useState<boolean>(false)
-  const [employees, setEmployees] = useState<EmployeesType[]>([])
+  const [loading, setLoading] = useState<boolean>(false);
+  const [employees, setEmployees] = useState<EmployeesType[]>([]);
+  const [searchParam] = useSearchParams();
+  const search = searchParam.get('search') || '';
 
   useEffect(() => {
     async function fetchData() {
@@ -19,21 +22,34 @@ function ContextProvider({ children }: ContextProviderProps) {
       setLoading(false);
     }
     fetchData();
-  
-  }, [])
+  }, []);
 
-  const values = {
+  const filteredEmployees = useMemo(() => {
+    if (search) {
+      return employees.filter(employee =>
+        employee.name.toLowerCase().includes(search.toLowerCase()) ||
+        employee.job.toLowerCase().includes(search.toLowerCase()) ||
+        employee.phone.includes(search) ||
+        employee.admission_date.includes(search)
+      );
+    }
+    return employees;
+  }, [search, employees]);
+  console.log(filteredEmployees);
+  const values = useMemo(() => ({
     loading,
     setLoading,
     employees,
-    setEmployees
-  };
-  
+    setEmployees,
+    filteredEmployees,
+    setFilteredEmployees: setEmployees,
+  }), [loading, employees, filteredEmployees]);
+
   return (
-    <Context.Provider value={ values }>
+    <Context.Provider value={values}>
       {children}
     </Context.Provider>
   );
 }
 
-export default ContextProvider
+export default ContextProvider;
