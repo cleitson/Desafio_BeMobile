@@ -42,7 +42,7 @@ function SearchBar() {
 
   return (
     <div className="w-full max-w-11/12 mx-auto">
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 my-4 md:my-10 p-2">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 my-5 md:my-10 ">
         <h1 className="text-start">Funcionários</h1>
         <SearchInput
           value={search}
