@@ -35,14 +35,12 @@ function ContextProvider({ children }: ContextProviderProps) {
     }
     return employees;
   }, [search, employees]);
-  console.log(filteredEmployees);
+
   const values = useMemo(() => ({
     loading,
     setLoading,
     employees,
-    setEmployees,
-    filteredEmployees,
-    setFilteredEmployees: setEmployees,
+    filteredEmployees
   }), [loading, employees, filteredEmployees]);
 
   return (

@@ -2,9 +2,7 @@ export type contextType = {
   loading: boolean,
   setLoading:React.Dispatch<React.SetStateAction<boolean>>
   employees: EmployeesType[],
-  setEmployees: React.Dispatch<React.SetStateAction<EmployeesType[]>>
   filteredEmployees: EmployeesType[],
-  setFilteredEmployees: React.Dispatch<React.SetStateAction<EmployeesType[]>>
 }
 
 export type EmployeesType = {

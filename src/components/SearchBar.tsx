@@ -1,7 +1,6 @@
 import { useSearchParams } from "react-router";
 import Search from "../icons/Search"
-import React, { ChangeEvent, useEffect, useState } from "react";
-import useDebounce from "../hooks/useDebounce";
+import React, { ChangeEvent } from "react";
 
 interface SearchInputProps {
   value: string;
@@ -37,17 +36,9 @@ const SearchInput: React.FC<SearchInputProps> = ({
 
 
 function SearchBar() {
-  const [, setSearchParams] = useSearchParams();
-  const [search, setSearch] = useState<string>('');
-  const debouncedSearch = useDebounce(search, 500);
+  const [searhParams, setSearchParams] = useSearchParams({ search: '' });
+  const search = searhParams.get('search')  || '';
 
-  useEffect(() => {
-    setSearchParams({ search: debouncedSearch });
-  }, [debouncedSearch, setSearchParams]);
-
-  const handleSearchChange = (value: string) => {
-    setSearch(value);
-  };
 
   return (
     <div className="w-full max-w-11/12 mx-auto">
@@ -55,7 +46,7 @@ function SearchBar() {
         <h1 className="text-start">Funcionários</h1>
         <SearchInput
           value={search}
-          onChange={(value) => handleSearchChange(value)}
+          onChange={e => setSearchParams(prev => { prev.set('search', e); return prev; })}
           placeholder="Pesquisar"
         />
       </div>
