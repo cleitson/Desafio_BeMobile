@@ -17,6 +17,16 @@ h2,h3{
   font-family: "Helvetica Neue", sans-serif;
   font-size: 1rem;
 }
+th{
+  font-family: "Helvetica Neue", sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+}
+td{
+  font-family: "Helvetica Neue", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+}
 
 @theme {
   --color-blue-primary: #0500FF;
