@@ -29,8 +29,7 @@ function ContextProvider({ children }: ContextProviderProps) {
       return employees.filter(employee =>
         employee.name.toLowerCase().includes(search.toLowerCase()) ||
         employee.job.toLowerCase().includes(search.toLowerCase()) ||
-        employee.phone.includes(search) ||
-        employee.admission_date.includes(search)
+        employee.phone.includes(search)
       );
     }
     return employees;
