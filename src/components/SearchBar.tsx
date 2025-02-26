@@ -18,7 +18,7 @@ const SearchInput: React.FC<SearchInputProps> = ({
   };
 
   return (
-    <div className="relative w-full md:max-w-3/12">
+    <div className="relative w-full md:max-w-5/12 lg:max-w-4/12">
       <input
         type="text"
         value={value}
